@@ -1,0 +1,1 @@
+web: gunicorn ResumeVisionAI.wsgi --workers 1 --threads 2
