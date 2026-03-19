@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Results | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="results.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <header class="results-header">
+            <h1>Resume Analysis Results</h1>
+        </header>
+
+        <!-- Stats Dashboard Banner -->
+        <section class="stats-banner">
+            <!-- ATS Compatibility -->
+            <div class="stat-card">
+                <h3>ATS Compatibility</h3>
+                <div class="badge-passed">
+                    <i class="fa-solid fa-circle-check"></i> Passed
+                </div>
+                <div
+                    style="margin-top: 10px; font-size: 0.8rem; color: #60a5fa; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: color 0.3s;" onmouseover="this.style.color='#93c5fd'" onmouseout="this.style.color='#60a5fa'">
+                    <i class="fa-solid fa-file-pdf"></i> PDF <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+
+
+            <!-- Resume Score Dial -->
+            <div class="score-container">
+                <div class="score-dial">
+                    <span class="score-label">Resume Score</span>
+                    <span class="score-number">0</span>
+                    <span class="score-total">/ 100</span>
+                </div>
+            </div>
+
+            <!-- Formatting -->
+            <div class="stat-card">
+                <h3>Formatting</h3>
+                <div class="stat-value" id="formatting-status">Loading...</div>
+            </div>
+
+
+        </section>
+        <section class="skills-section">
+            <div class="section-header">
+                <h2>Extracted Skills</h2>
+            </div>
+
+            <div class="skills-container" id="skills-container">
+                <!-- Skills will come here -->
+            </div>
+        </section>
+
+        <!-- AI Suggestions Section -->
+        <section class="suggestions-section">
+            <div class="section-header">
+                <h2>Suggestions to Improve Your Resume</h2>
+            </div>
+            <div class="suggestions-grid" id="suggestions-container">
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>Loading suggestions...</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>...</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>...</p>
+                </div>
+                <div class="suggestion-card">
+                    <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p>...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <div class="section-header">
+                <h2>Your Resume vs. AI Recommendations</h2>
+            </div>
+            <div class="comparison-container">
+                <div class="comparison-header">
+                    <div class="header-col">Original Resume</div>
+                    <div class="header-col">AI Suggestions</div>
+                </div>
+                <div class="comparison-body">
+                    <div class="original-side">
+                        <div class="resume-mock-lines">
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-med"></div>
+                            </div>
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-long"></div>
+                            </div>
+                            <div style="margin-left: 1.5rem;">
+                                <div class="line line-short"></div>
+                            </div>
+                            <br>
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-long"></div>
+                            </div>
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-med"></div>
+                            </div>
+                            <br>
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-med"></div>
+                            </div>
+                            <div class="line-dot">
+                                <div class="dot"></div>
+                                <div class="line line-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-side">
+                        <div class="ai-checklist">
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Increased sales by 30%</span>
+                                    <span class="pill-tag"><i class="fa-solid fa-equals"></i> =</span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Implemented efficient workflows</span>
+                                    <span class="pill-tag highlight-yellow">Improve <i
+                                            class="fa-solid fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Proficient in Python & SQL</span>
+                                    <span class="pill-tag highlight-yellow">Skill <i
+                                            class="fa-solid fa-chevron-down"></i></span>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
+                                <div class="suggestion-pill highlight-green">
+                                    <span class="pill-text">Reduce long paragraphs</span>
+                                    <span class="pill-tag"><i class="fa-solid fa-equals"></i> =</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Banner CTA -->
+                <div class="cta-banner">
+                    <h2>Turn Your Resume Into an Interview Magnet</h2>
+                    <a href="#" class="btn-full" id="download-report">Download Report</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.get("demo") === "true") {
+
+            const data = JSON.parse(localStorage.getItem("demo_result"));
+
+            document.querySelector(".score-number").innerText = data.score;
+
+
+
+        }
+
+
+        /* get resume id from URL */
+
+        const resumeId = params.get("resume_id");
+        const isDemo = params.get("demo")
+
+
+        async function loadResults() {
+
+            // ⭐ DEMO MODE
+            if (isDemo === "true") {
+
+                const data = JSON.parse(localStorage.getItem("demo_result"));
+                document.getElementById("download-report").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    downloadReport(data);
+                });
+
+                document.querySelector(".score-number").innerText = data.score;
+
+                // 🔥 Formatting logic based on score
+                const formattingEl = document.getElementById("formatting-status");
+
+
+                if (formattingEl) {
+
+                    let text = "";
+
+                    if (data.score >= 80) {
+                        text = "Excellent";
+                        formattingEl.style.color = "#22c55e";
+                    } else if (data.score >= 60) {
+                        text = "Good";
+                        formattingEl.style.color = "#3b82f6";
+                    } else if (data.score >= 40) {
+                        text = "Needs Improvement";
+                        formattingEl.style.color = "#f59e0b";
+                    } else {
+                        text = "Poor Formatting";
+                        formattingEl.style.color = "#ef4444";
+                    }
+
+                    formattingEl.innerText = text;
+                }
+
+                // ✅ SKILLS (DEMO)
+                const skillsContainer = document.getElementById("skills-container");
+                skillsContainer.innerHTML = "";
+
+                if (!data.skills || data.skills.length === 0) {
+                    skillsContainer.innerHTML = "<p>No skills found</p>";
+                } else {
+                    data.skills.forEach(skill => {
+
+                        const tag = document.createElement("div");
+                        tag.classList.add("skill-tag");
+
+                        tag.innerText = skill;
+
+                        skillsContainer.appendChild(tag);
+                    });
+                }
+
+
+                const suggestionContainer = document.getElementById("suggestions-container");
+                suggestionContainer.innerHTML = "";
+
+                // ✅ If no suggestions
+                if (!data.suggestions || data.suggestions.length === 0) {
+                    suggestionContainer.innerHTML = `<div class="suggestion-card"> <p>No suggestions needed 🎉</p></div>`;
+                } else {
+
+                    data.suggestions.forEach(text => {
+
+                        const card = document.createElement("div");
+                        card.classList.add("suggestion-card");
+
+                        card.innerHTML = ` <div class="suggestion-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><p>${text}</p> `;
+
+                        suggestionContainer.appendChild(card);
+                    });
+                }
+
+
+
+                return; // ✅ STOP API CALL
+            }
+
+            // ⭐ REAL MODE
+            const response = await fetch(`http://127.0.0.1:8000/api/resume/result/${resumeId}/`);
+            const data = await response.json();
+            document.getElementById("download-report").addEventListener("click", (e) => {
+                e.preventDefault();
+                downloadReport(data);
+            });
+
+
+            document.querySelector(".score-number").innerText = data.score;
+
+            // 🔥 Formatting logic based on score
+            const formattingEl = document.getElementById("formatting-status");
+
+
+            if (formattingEl) {
+
+                let text = "";
+
+                if (data.score >= 80) {
+                    text = "Excellent";
+                    formattingEl.style.color = "#22c55e";
+                } else if (data.score >= 60) {
+                    text = "Good";
+                    formattingEl.style.color = "#3b82f6";
+                } else if (data.score >= 40) {
+                    text = "Needs Improvement";
+                    formattingEl.style.color = "#f59e0b";
+                } else {
+                    text = "Poor Formatting";
+                    formattingEl.style.color = "#ef4444";
+                }
+
+                formattingEl.innerText = text;
+            }
+
+            // ✅ SKILLS UI
+            const skillsContainer = document.getElementById("skills-container");
+            skillsContainer.innerHTML = "";
+
+            if (!data.skills || data.skills.length === 0) {
+                skillsContainer.innerHTML = "<p>No skills found</p>";
+            } else {
+                data.skills.forEach(skill => {
+
+                    const tag = document.createElement("div");
+                    tag.classList.add("skill-tag");
+
+                    tag.innerText = skill;
+
+                    skillsContainer.appendChild(tag);
+                });
+            }
+
+            // suggestions
+            const suggestionContainer = document.getElementById("suggestions-container");
+            suggestionContainer.innerHTML = "";
+
+            data.suggestions.forEach(text => {
+                const card = document.createElement("div");
+                card.classList.add("suggestion-card");
+
+                card.innerHTML = `
+        <div class="suggestion-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <p>${text}</p>
+        `;
+
+                suggestionContainer.appendChild(card);
+            });
+
+
+        }
+
+        loadResults();
+
+
+
+        // Simple entry animation for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.stat-card, .suggestion-card, .comparison-container');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+
+        // downloadReport logic
+
+        function downloadReport(data) {
+
+            const content = `
+        Resume Analysis Report
+        
+        ---------------------------
+        Score: ${data.score}
+
+        Skills:
+        ${data.skills ? data.skills.join(", ") : "N/A"}
+
+        Suggestions:
+        ${data.suggestions.map(s => "- " + s).join("\n")}
+
+        Improvements:
+        ${data.improvements.map(i => "- " + i).join("\n")}
+    `;
+
+            const blob = new Blob([content], { type: "text/plain" });
+
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "resume_report.txt";
+
+            link.click();
+        }
+    </script>
+</body>
+
+</html>

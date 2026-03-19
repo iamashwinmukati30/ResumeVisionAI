@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Recommendations | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="personalized-recommendations.css">
+</head>
+<body>
+    <nav class="page-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Logo">
+            Resume Vision AI
+        </a>
+        <a href="jobs.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Jobs
+        </a>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-badge">
+            <i class="fa-solid fa-star"></i> Personalized
+        </div>
+        <h1>Personalized Career Path</h1>
+        <p>Discover opportunities tailored specifically to your interests and career goals.</p>
+    </header>
+
+    <div class="interest-selector">
+        <div class="selector-header">
+            <h2>Select Your Field of Interest</h2>
+            <p>Choose one or more fields to get tailored recommendations</p>
+        </div>
+        
+        <div class="interest-grid" id="interest-grid">
+            <!-- Interest cards will be injected by JavaScript -->
+        </div>
+
+        <div class="selector-actions">
+            <button class="btn-primary" id="generate-btn" disabled>
+                <i class="fa-solid fa-magic"></i> Generate My Recommendations
+            </button>
+            <button class="btn-secondary" id="clear-btn">
+                <i class="fa-solid fa-eraser"></i> Clear Selection
+            </button>
+        </div>
+    </div>
+
+    <div class="recommendations-section" id="recommendations-section" style="display: none;">
+        <div class="section-header">
+            <h2>Your Personalized Recommendations</h2>
+            <div class="recommendation-stats" id="recommendation-stats">
+                Showing <strong>0</strong> opportunities
+            </div>
+        </div>
+
+        <div class="recommendation-controls">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="rec-search" placeholder="Search opportunities...">
+            </div>
+
+            <div class="filter-row">
+                <div class="type-toggle">
+                    <button class="type-btn active" data-type="all">All Types</button>
+                    <button class="type-btn" data-type="job">Jobs</button>
+                    <button class="type-btn" data-type="internship">Internships</button>
+                </div>
+                
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="salary">Salary (High to Low)</option>
+                        <option value="experience">Experience Level</option>
+                        <option value="date">Date Posted</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommendations-grid" id="recommendations-grid">
+            <!-- Recommendations will be injected by JavaScript -->
+        </div>
+
+        <div class="recommendation-footer">
+            <div class="insights">
+                <h3>Personalized Insights</h3>
+                <div class="insights-grid" id="insights-grid">
+                    <!-- Insights will be injected by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn-primary" id="save-all-btn">
+                    <i class="fa-solid fa-download"></i> Save All Recommendations
+                </button>
+                <button class="btn-secondary" id="export-btn">
+                    <i class="fa-solid fa-file-export"></i> Export to PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+        <i class="fa-solid fa-robot"></i>
+        <h3>Ready to Get Personalized Recommendations?</h3>
+        <p>Select your field of interest above to see tailored opportunities just for you.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 <a href="index.html">Resume Vision AI</a>. All rights reserved.</p>
+    </footer>
+
+    <!-- Job Details Modal -->
+    <div id="job-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-company-info">
+                    <div class="modal-company-logo" id="modal-logo"></div>
+                    <div>
+                        <h2 id="modal-role"></h2>
+                        <p id="modal-company"></p>
+                    </div>
+                </div>
+                <button class="modal-close" id="modal-close">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-details-grid">
+                    <div class="modal-detail-card">
+                        <h3>Job Details</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">Type:</span>
+                            <span class="detail-value" id="modal-type"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value" id="modal-location"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Experience:</span>
+                            <span class="detail-value" id="modal-experience"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Salary:</span>
+                            <span class="detail-value" id="modal-salary"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Posted:</span>
+                            <span class="detail-value" id="modal-posted"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-detail-card">
+                        <h3>Required Skills</h3>
+                        <div class="modal-skills" id="modal-skills"></div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-primary modal-apply-btn" id="modal-apply-btn">
+                        <i class="fa-solid fa-briefcase"></i> Apply for this Position
+                    </button>
+                    <button class="btn-secondary modal-save-btn" id="modal-save-btn">
+                        <i class="fa-regular fa-bookmark"></i> Save Job
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="personalized-recommendations.js"></script>
+</body>
+</html>

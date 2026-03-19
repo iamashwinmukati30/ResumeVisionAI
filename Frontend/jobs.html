@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job & Internship Recommendations | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="jobs.css">
+</head>
+<body>
+    <nav class="page-nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Logo">
+            Resume Vision AI
+        </a>
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-badge">
+            <i class="fa-solid fa-briefcase"></i> Opportunities
+        </div>
+        <h1>Career Recommendations</h1>
+        <p>Explore hand-picked roles and internships tailored to your profile and interests.</p>
+    </header>
+
+    <div class="controls">
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="job-search" placeholder="Search by role, company, or skills...">
+        </div>
+
+        <div class="filter-row">
+            <div class="field-tabs">
+                <div class="field-tab active" data-field="all">All Fields</div>
+                <div class="field-tab" data-field="frontend">Frontend</div>
+                <div class="field-tab" data-field="backend">Backend</div>
+                <div class="field-tab" data-field="aiml">AI / ML</div>
+                <div class="field-tab" data-field="data">Data Science</div>
+                <div class="field-tab" data-field="devops">DevOps</div>
+                <div class="field-tab" data-field="design">Design</div>
+            </div>
+
+            <div class="type-toggle">
+                <button class="type-btn active" data-type="all">All</button>
+                <button class="type-btn" data-type="job">Jobs</button>
+                <button class="type-btn" data-type="internship">Internships</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-row">
+        <span class="results-count" id="results-count">Showing <strong>0</strong> listings</span>
+        <div class="active-filters" id="active-filters"></div>
+    </div>
+
+    <main class="jobs-grid" id="jobs-grid">
+        <!-- Listings will be injected by JavaScript -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <a href="index.html">Resume Vision AI</a>. All rights reserved.</p>
+    </footer>
+
+    <script src="jobs.js"></script>
+</body>
+</html>

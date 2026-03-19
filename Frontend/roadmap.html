@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Roadmaps | Resume Vision AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="roadmap.css">
+</head>
+
+<body>
+    <nav class="roadmap-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Logo" style="height: 32px; mix-blend-mode: screen;">
+                <span>ResumeVisionAI</span>
+            </a>
+            <div class="nav-right">
+                <a href="index.html" class="external-link"><i class="fa-solid fa-house"></i> Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header class="roadmap-header">
+            <h1 id="roadmap-title">Frontend Developer</h1>
+            <p id="roadmap-desc">A comprehensive step-by-step guide to mastering modern frontend engineering and landing
+                your dream role in 2024.</p>
+
+            <!-- Progress Tracker -->
+            <div class="progress-container">
+                <div class="progress-info">
+                    <h4>Current Mastery</h4>
+                    <div class="progress-percentage"><span id="total-progress">0</span>%</div>
+                </div>
+                <div class="progress-bar-main">
+                    <div class="progress-fill-main" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="roadmap-tabs">
+                <button class="tab-btn active" data-roadmap="frontend">Frontend</button>
+                <button class="tab-btn" data-roadmap="backend">Backend</button>
+                <button class="tab-btn" data-roadmap="ai-ml">AI / ML</button>
+            </div>
+        </header>
+
+        <section class="roadmap-container">
+            <!-- Frontend Roadmap Content -->
+            <div id="frontend-roadmap" class="roadmap-content active">
+                <div class="node primary">
+                    <i class="fa-solid fa-globe"></i>
+                    <div class="node-content">
+                        <span>Phase 1</span>
+                        <h3>Fundamentals</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node"><i class="fa-brands fa-html5"></i> HTML5</div>
+                    <div class="mini-node"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                    <div class="mini-node"><i class="fa-brands fa-js"></i> JavaScript ES6+</div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="node primary">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <div class="node-content">
+                        <span>Phase 2</span>
+                        <h3>Version Control</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node">Git Fundamentals</div>
+                    <div class="mini-node">GitHub Workflow</div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="node primary">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <div class="node-content">
+                        <span>Phase 3</span>
+                        <h3>Frameworks</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node highlight">React.js</div>
+                    <div class="mini-node">Next.js</div>
+                    <div class="mini-node">Tailwind CSS</div>
+                </div>
+            </div>
+
+            <!-- Backend Roadmap Content -->
+            <div id="backend-roadmap" class="roadmap-content">
+                <div class="node secondary">
+                    <i class="fa-solid fa-terminal"></i>
+                    <div class="node-content">
+                        <span>Phase 1</span>
+                        <h3>Language Selection</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node">Python</div>
+                    <div class="mini-node">Node.js</div>
+                    <div class="mini-node">Go (Golang)</div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="node secondary">
+                    <i class="fa-solid fa-database"></i>
+                    <div class="node-content">
+                        <span>Phase 2</span>
+                        <h3>Data Persistence</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node">PostgreSQL</div>
+                    <div class="mini-node">MongoDB</div>
+                    <div class="mini-node">Redis (Caching)</div>
+                </div>
+            </div>
+
+            <!-- AI Roadmap Content -->
+            <div id="ai-ml-roadmap" class="roadmap-content">
+                <div class="node ai">
+                    <i class="fa-solid fa-brain"></i>
+                    <div class="node-content">
+                        <span>Phase 1</span>
+                        <h3>Mathematics</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node">Linear Algebra</div>
+                    <div class="mini-node">Probability</div>
+                    <div class="mini-node">Calculus</div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="node ai">
+                    <i class="fa-solid fa-microchip"></i>
+                    <div class="node-content">
+                        <span>Phase 2</span>
+                        <h3>Applied ML</h3>
+                    </div>
+                </div>
+                <div class="connector-wrap">
+                    <div class="line-vertical"></div>
+                </div>
+
+                <div class="sub-nodes-container">
+                    <div class="mini-node highlight">Scikit-Learn</div>
+                    <div class="mini-node">PyTorch</div>
+                    <div class="mini-node">TensorFlow</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-roadmaps">
+            <h2>Explore specialized paths</h2>
+            <div class="roadmaps-grid">
+                <div class="roadmap-card">
+                    <h3>DevOps</h3>
+                    <p>Master CI/CD, Docker, and Cloud infrastructure.</p>
+                    <button class="card-btn"><i class="fa-solid fa-arrow-right"></i> Explore Path</button>
+                </div>
+                <div class="roadmap-card">
+                    <h3>Cybersecurity</h3>
+                    <p>Learn network security, ethical hacking, and defense.</p>
+                    <button class="card-btn"><i class="fa-solid fa-arrow-right"></i> Explore Path</button>
+                </div>
+                <div class="roadmap-card">
+                    <h3>Mobile Dev</h3>
+                    <p>Build native apps for iOS and Android.</p>
+                    <button class="card-btn"><i class="fa-solid fa-arrow-right"></i> Explore Path</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ResumeVisionAI. Powering the next generation of engineers. <br> Inspired by <a
+                href="https://roadmap.sh">roadmap.sh</a></p>
+    </footer>
+
+    <script>
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const roadmapContents = document.querySelectorAll('.roadmap-content');
+        const roadmapTitle = document.getElementById('roadmap-title');
+        const roadmapDesc = document.getElementById('roadmap-desc');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('total-progress');
+
+        const contentData = {
+            'frontend': {
+                title: 'Frontend Developer',
+                desc: 'A comprehensive step-by-step guide to mastering modern frontend engineering and landing your dream role in 2024.'
+            },
+            'backend': {
+                title: 'Backend Developer',
+                desc: 'Master server-side architecture, database design, and API development with the most in-demand technologies.'
+            },
+            'ai-ml': {
+                title: 'AI / Machine Learning',
+                desc: 'Dive into the world of neural networks, data science, and modern large language models.'
+            }
+        };
+
+        // Progress Calculation
+        function updateProgress() {
+            const allItems = document.querySelectorAll('.roadmap-content.active .node, .roadmap-content.active .mini-node');
+            const completedItems = document.querySelectorAll('.roadmap-content.active .node.completed, .roadmap-content.active .mini-node.completed');
+
+            const percentage = allItems.length ? Math.round((completedItems.length / allItems.length) * 100) : 0;
+
+            progressFill.style.width = percentage + '%';
+            progressText.innerText = percentage;
+        }
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-roadmap');
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                roadmapContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `${target}-roadmap`) content.classList.add('active');
+                });
+
+                roadmapTitle.innerText = contentData[target].title;
+                roadmapDesc.innerText = contentData[target].desc;
+
+                updateProgress();
+            });
+        });
+
+        // Click to complete logic
+        document.querySelector('.roadmap-container').addEventListener('click', (e) => {
+            const item = e.target.closest('.node, .mini-node');
+            if (!item) return;
+
+            item.classList.toggle('completed');
+
+            // Toggle icon for major nodes
+            if (item.classList.contains('node')) {
+                if (item.classList.contains('completed')) {
+                    if (!item.querySelector('.check-icon')) {
+                        const check = document.createElement('i');
+                        check.className = 'fa-solid fa-circle-check check-icon';
+                        item.appendChild(check);
+                    }
+                } else {
+                    const check = item.querySelector('.check-icon');
+                    if (check) check.remove();
+                }
+            }
+
+            updateProgress();
+        });
+    </script>
+</body>
+
+</html>
