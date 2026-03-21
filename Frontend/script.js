@@ -1113,8 +1113,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentUser = JSON.parse(localStorage.getItem("rv_currentUser"));
 
+        document.getElementById("upload-content-default").classList.add("hidden");
+        document.getElementById("upload-success-msg").classList.remove("hidden");
+
+        document.getElementById("uploaded-filename").innerText = file.name;
+
+        const progressBar = document.getElementById("scan-progress-fill");
+        const statusText = document.getElementById("scan-status-text");
+
+        let progress = 0;
+        progressBar.style.width = "0%";
+        progressBar.style.background = ""; // Reset in case of prior errors
+        progressBar.style.boxShadow = "";
+
+        const updateStatusText = (currentProgress) => {
+            if (currentProgress < 30) {
+                statusText.innerText = "Extracting text from resume...";
+            } else if (currentProgress < 60) {
+                statusText.innerText = "Analyzing skills and keywords...";
+            } else if (currentProgress < 100) {
+                statusText.innerText = "Calculating ATS score...";
+            } else {
+                statusText.innerText = "Analysis Complete ✅";
+                statusText.style.color = "#27c93f";
+            }
+        };
+
+        updateStatusText(0);
+
+        // 🎯 SMOOTH PROGRESS LOOP
+        const interval = setInterval(() => {
+            // Gradually increment progress, slowing down near 95%
+            const increment = Math.max(0.2, (95 - progress) * 0.05);
+            progress += increment;
+
+            if (progress >= 95) {
+                progress = 95;
+            }
+
+            progressBar.style.width = progress + "%";
+            updateStatusText(progress);
+        }, 300);
+
         if (!currentUser) {
+            clearInterval(interval);
             alert("Please login first");
+            // Reset UI slightly
+            document.getElementById("upload-content-default").classList.remove("hidden");
+            document.getElementById("upload-success-msg").classList.add("hidden");
             return;
         }
 
@@ -1130,16 +1176,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
+            clearInterval(interval);
 
             if (data.resume_id) {
-                window.location.href = `results.html?resume_id=${data.resume_id}`;
+                // ✅ COMPLETE BAR
+                progress = 100;
+                progressBar.style.width = "100%";
+                updateStatusText(progress);
+
+                // Wait ~1 second before redirecting
+                setTimeout(() => {
+                    window.location.href = `results.html?resume_id=${data.resume_id}`;
+                }, 1000);
             } else {
-                alert(data.error || "Upload failed");
+                statusText.innerText = "Upload failed. " + (data.error || "Please try again.");
+                statusText.style.color = "#ff5f56";
+                progressBar.style.background = "linear-gradient(90deg, #ff5f56, #e63946)";
+                progressBar.style.boxShadow = "0 0 15px rgba(255, 95, 86, 0.5)";
             }
 
         } catch (err) {
             console.error(err);
-            alert("Server error");
+            clearInterval(interval);
+            statusText.innerText = "Server error. Please try again.";
+            statusText.style.color = "#ff5f56";
+            progressBar.style.background = "linear-gradient(90deg, #ff5f56, #e63946)";
+            progressBar.style.boxShadow = "0 0 15px rgba(255, 95, 86, 0.5)";
         }
     }
 });
