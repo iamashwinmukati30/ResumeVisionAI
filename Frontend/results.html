@@ -276,7 +276,7 @@
             }
 
             // ⭐ REAL MODE
-            const response = await fetch(`http://ashwinm30.pythonanywhere.com/api/resume/result/${resumeId}/`);
+            const response = await fetch(`https://ashwinm30.pythonanywhere.com/api/resume/result/${resumeId}/`);
             const data = await response.json();
             document.getElementById("download-report").addEventListener("click", (e) => {
                 e.preventDefault();
