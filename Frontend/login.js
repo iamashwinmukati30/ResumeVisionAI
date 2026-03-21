@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Creating...';
 
-        fetch("https://ashwinm30.pythonanywhere.com/api/users//register/", {
+        fetch("https://ashwinm30.pythonanywhere.com/api/users/register/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

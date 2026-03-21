@@ -1057,7 +1057,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 formData.append("resume", file);
                                 formData.append("user_id", currentUser.id);
 
-                                const response = await fetch("http://127.0.0.1:8000/api/resume/upload/", {
+                                const response = await fetch(`https://ashwinm30.pythonanywhere.com/api/resume/upload/`, {
                                     method: "POST",
                                     body: formData
                                 });
@@ -1123,7 +1123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append("user_id", currentUser.id);
 
         try {
-            const response = await fetch("https://ashwinm30.pythonanywhere.com/api/resume/upload/", {
+            const response = await fetch(`https://ashwinm30.pythonanywhere.com/api/resume/upload/`, {
                 method: "POST",
                 body: formData
             });
